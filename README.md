@@ -38,6 +38,18 @@ python3 optimize/pose_opt.py sliding_window -image_dir shared/gravel_pit/frames/
 docker run -v /home/jdgalviss/applications/gps-denied-uav-localization/shared:/usr/src/app/shared -p 8888:8888 -it --rm --gpus all gnss-less
 
 See `argparse` help for argument documentation.
+
+## Docker
+1. Build Docker
+```bash
+docker build . -t no-gps
+```
+
+2. Run Docker (--gpus all is not necessary since we won't be using gpu by now)
+```bash
+docker run -v /home/jdgalviss/applications/gps-denied-uav-localization/shared:/usr/src/app/shared -p 8888:8888 -it --rm --gpus all no-gps
+```
+3. Click on the jupyter-notebook link. Once on the browser open and execute the notebook Test.ipynb
 <!-- 
 
 # BPVO
