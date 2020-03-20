@@ -1773,6 +1773,7 @@ def load_P(P_loc):
 	P_init = np.expand_dims(P_init, axis=0)
 
 	return P_init, P
+#def run():
 
 if __name__ == "__main__":
 	np.set_printoptions(precision=4)
@@ -1789,7 +1790,7 @@ if __name__ == "__main__":
 	parser.add_argument('-img_h_rel_pose',help='image height used for computing motion parameters, if not the native height')
 	parser.add_argument('-opt_param_save_loc',help='location for saving optimized motion parameters')
 	args = parser.parse_args()
-
+	print(args)
 	if (args.test == '3img'):
 		test_3img(args)
 	elif (args.test == 'multi'):

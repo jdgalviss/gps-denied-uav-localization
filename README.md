@@ -26,14 +26,16 @@ python3 evaluate.py train woodbridge ../sat_data/ trained_model_output.pth ../mo
 In `optimize/`, testing alignment on Village dataset using trained model, aligning every UAV image in dataset sequentially with the map:
 
 ```
-python3 pose_opt.py sliding_window -image_dir ../village/frames/ -image_dir_ext *.JPG -motion_param_loc ../village/P_village.csv -map_loc ../village/map_village.jpg -model_path ../models/conv_02_17_18_1833.pth -opt_img_height 100 -img_h_rel_pose 1036.8 -opt_param_save_loc ../village/test_out.mat
+python3 optimize/pose_opt.py sliding_window -image_dir shared/village/frames/ -image_dir_ext *.JPG -motion_param_loc shared/village/P_village.csv -map_loc shared/village/map_village.jpg -model_path ./shared/models/conv_02_17_18_1833.pth -opt_img_height 100 -img_h_rel_pose 1036.8 -opt_param_save_loc shared/village/test_out.mat
 ```
 
 Testing alignment on Gravel-Pit dataset using trained model:
 
 ```
-python3 pose_opt.py sliding_window -image_dir ../gravel_pit/frames/ -image_dir_ext *.JPG -motion_param_loc ../gravel_pit/P_gravel_pit.csv -map_loc ../gravel_pit/map_gravel_pit.jpg -model_path ../models/conv_02_17_18_1833.pth -opt_img_height 100 -img_h_rel_pose 864 -opt_param_save_loc ../gravel_pit/test_out.mat
+python3 optimize/pose_opt.py sliding_window -image_dir shared/gravel_pit/frames/ -image_dir_ext *.JPG -motion_param_loc shared/gravel_pit/P_gravel_pit.csv -map_loc shared/gravel_pit/map_gravel_pit.jpg -model_path shared/models/conv_02_17_18_1833.pth -opt_img_height 100 -img_h_rel_pose 864 -opt_param_save_loc shared/gravel_pit/test_out.mat
 ```
+
+docker run -v /home/jdgalviss/applications/gps-denied-uav-localization/shared:/usr/src/app/shared -p 8888:8888 -it --rm --gpus all gnss-less
 
 See `argparse` help for argument documentation.
 <!-- 

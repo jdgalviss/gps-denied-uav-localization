@@ -1,0 +1,6 @@
+autograd
+opencv-python==3.3.0.9
+jupyter
+jupyterlab
+matplotlib==2.0.2
+scipy==0.19.1
